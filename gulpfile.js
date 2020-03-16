@@ -8,7 +8,7 @@ const browsersync = require("browser-sync");
 
 gulp.task("sass", function() {
   return gulp
-    .src("scss/*.scss")
+    .src("scss/**/*.scss")
     .pipe(sass())
     .pipe(autoprefixer())
     .pipe(gulp.dest("css/"))
@@ -33,7 +33,7 @@ gulp.task("sprite", function() {
   });
 
   const cssStream = new Promise(function(resolve) {
-    spriteData.css.pipe(gulp.dest("scss/")).on("end", resolve);
+    spriteData.css.pipe(gulp.dest("scss/common")).on("end", resolve);
   });
 
   return Promise.all([imgStream, cssStream]);
@@ -48,7 +48,7 @@ gulp.task("browser-sync", function() {
 });
 
 gulp.task("watch", ["browser-sync"], function() {
-  gulp.watch("scss/*.scss", ["sass"]);
+  gulp.watch("scss/**/*.scss", ["sass"]);
   gulp.watch("*.html").on("change", browsersync.reload);
 });
 

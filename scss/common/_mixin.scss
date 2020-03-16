@@ -1,0 +1,68 @@
+@charset "utf-8";
+
+@import "variables";
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+@mixin ellipsis($line: 1) {
+  @if ($line == 1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line;
+  }
+}
+
+@mixin mq($device) {
+  @if map-has-key($devices, $device) {
+    $device-width: map-get($devices, $device);
+    @media screen and (min-width: #{$device-width}) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid device: #{$device}.';
+  }
+}
+
+@mixin inline-block($vertical-align: top) {
+  display: inline-block;
+  vertical-align: $vertical-align;
+}
+
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin absolute($args...) {
+  @include position(absolute, $args...);
+}
+
+@mixin fixed($args...) {
+  @include position(fixed, $args...);
+}
+
+@mixin sprite-size-pos($width, $height, $x, $y) {
+  width: $width;
+  height: $height;
+  background-position: $x $y;
+}
+
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}

@@ -1,0 +1,8 @@
+@charset "utf-8";
+
+@import "./sprite";
+@import "./mixin";
+
+%sprite-image {
+  background: url($spritesheet-image) no-repeat 0 / ($spritesheet-width/2 $spritesheet-height/2);
+}

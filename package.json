@@ -1,8 +1,8 @@
 {
-  "name": "sass_study",
+  "name": "project-name",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,13 +10,8 @@
     "type": "git",
     "url": "git+https://github.com/13akstjq/sass_study.git"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/13akstjq/sass_study/issues"
-  },
-  "homepage": "https://github.com/13akstjq/sass_study#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-imagemin": "^7.1.0",
